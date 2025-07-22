@@ -1,26 +1,33 @@
 package edu.t1.app;
 
-import edu.t1.app.config.AppConfig;
-import edu.t1.app.model.User;
+import edu.t1.app.model.UserDto;
 import edu.t1.app.service.UserService;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-public class Main {
+@SpringBootApplication
+@RequiredArgsConstructor
+public class Main implements CommandLineRunner {
+    private final UserService userService;
+
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        SpringApplication.run(Main.class, args);
+    }
 
-        UserService userService = context.getBean(UserService.class);
+    @Override
+    public void run(String... args) throws Exception {
 
-        User user = new User();
-        user.setUsername("testUser" + System.currentTimeMillis());
+        UserDto userDto = new UserDto("testUser" + System.currentTimeMillis());
+        userService.save(userDto);
 
-        userService.createUser(user);
-        System.out.println(userService.findAll());
+        System.out.println(userService.findById(2L));
 
-        User user1 = userService.findById(2L);
-        System.out.println("Найден пользователь " + user1.getUsername());
+        userService.deleteById(3L);
 
-        userService.deleteById(13L);
+        UserDto userDtoUpd = new UserDto("User" + System.currentTimeMillis());
+        userDtoUpd.setId(1L);
+        userService.save(userDtoUpd);
     }
 }
