@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0.0.1
+      author: Dmitriy
+      changes:
+        createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+        createIndex:
+          tableName: users
+          indexName: users_username_idx
+          columns:
+            - name: username

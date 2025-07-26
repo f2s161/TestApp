@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0.0.2
+      author: Dmitriy
+      changes:
+        - sql:
+            sql: "INSERT INTO public.users (id, username) VALUES(nextval('users_id_seq'::regclass), concat('testUser', now()));"
+        - sql:
+            sql: "INSERT INTO public.users (id, username) VALUES(nextval('users_id_seq'::regclass), concat('testUser', now()));"
+        - sql:
+            sql: "INSERT INTO public.users (id, username) VALUES(nextval('users_id_seq'::regclass), concat('testUser', now()));"
