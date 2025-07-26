@@ -1,6 +1,6 @@
 package edu.t1.app;
 
-import edu.t1.app.model.UserDto;
+import edu.t1.app.model.dto.UserDto;
 import edu.t1.app.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;

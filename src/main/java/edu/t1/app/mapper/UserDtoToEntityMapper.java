@@ -1,6 +1,6 @@
 package edu.t1.app.mapper;
 
-import edu.t1.app.model.UserDto;
+import edu.t1.app.model.dto.UserDto;
 import edu.t1.app.model.UserEntity;
 import org.springframework.stereotype.Component;
 

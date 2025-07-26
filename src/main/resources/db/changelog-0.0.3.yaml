@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0.0.3
+      author: Dmitriy
+      changes:
+        createTable:
+            tableName: products
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: account_number
+                  type: varchar(100)
+              - column:
+                  name: balance
+                  type: numeric
+              - column:
+                  name: product_type
+                  type: varchar(10)
+              - column:
+                  name: user_id
+                  type: bigserial
+        addForeignKeyConstraint:
+            baseTableName: products
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            constraintName: fk_users_products

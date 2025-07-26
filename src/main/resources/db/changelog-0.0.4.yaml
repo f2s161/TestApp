@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0.0.4
+      author: Dmitriy
+      changes:
+        - sql:
+            sql: "INSERT INTO public.products (account_number, balance, product_type, user_id) VALUES(concat('test_account', now()), 1000, 'ACCOUNT',1);"
+        - sql:
+            sql: "INSERT INTO public.products (account_number, balance, product_type, user_id) VALUES(concat('test_account', now()), 1000, 'ACCOUNT',1);"
+        - sql:
+            sql: "INSERT INTO public.products (account_number, balance, product_type, user_id) VALUES(concat('test_account', now()), 1000, 'ACCOUNT',1);"

@@ -1,7 +1,7 @@
 package edu.t1.app.service.impl;
 
 import edu.t1.app.mapper.UserDtoToEntityMapper;
-import edu.t1.app.model.UserDto;
+import edu.t1.app.model.dto.UserDto;
 import edu.t1.app.model.UserEntity;
 import edu.t1.app.repository.UserRepository;
 import edu.t1.app.service.UserService;
