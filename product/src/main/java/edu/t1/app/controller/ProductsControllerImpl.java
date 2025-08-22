@@ -4,6 +4,7 @@ import edu.t1.app.model.ProductOperation;
 import edu.t1.app.model.dto.ProductDto;
 import edu.t1.app.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -14,27 +15,28 @@ public class ProductsControllerImpl implements ProductsController {
     private final ProductService productService;
 
     @Override
-    public List<ProductDto> getProducts(Long userId) {
-        return productService.findByUserId(userId);
+    public ResponseEntity<List<ProductDto>> getProducts(Long userId) {
+        return ResponseEntity.ok(productService.findByUserId(userId));
     }
 
     @Override
-    public ProductDto getProduct(Long productId) {
-        return productService.findById(productId);
+    public ResponseEntity<ProductDto> getProduct(Long productId) {
+        return ResponseEntity.ok(productService.findById(productId));
     }
 
     @Override
-    public ProductDto create(ProductDto productDto) {
-        return productService.create(productDto);
+    public ResponseEntity<ProductDto> create(ProductDto productDto) {
+        return ResponseEntity.ok(productService.create(productDto));
     }
 
     @Override
-    public void delete(Long id) {
+    public ResponseEntity<Void> delete(Long id) {
         productService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
     @Override
-    public ProductDto updateProduct(ProductOperation productOperation) {
-        return productService.update(productOperation);
+    public ResponseEntity<ProductDto> updateProduct(ProductOperation productOperation) {
+        return ResponseEntity.ok(productService.update(productOperation));
     }
 }

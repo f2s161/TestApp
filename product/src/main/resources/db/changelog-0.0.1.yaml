@@ -20,5 +20,6 @@ databaseChangeLog:
         createIndex:
           tableName: users
           indexName: users_username_idx
+          unique: true
           columns:
             - name: username

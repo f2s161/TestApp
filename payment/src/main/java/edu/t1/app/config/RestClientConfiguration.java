@@ -8,10 +8,20 @@ import org.springframework.web.client.RestClient;
 public class RestClientConfiguration {
     @Value("${app.products-url}")
     private String productsServiceUrl;
-    @Bean
+    @Value("${app.user-day-limit-service-url}")
+    private String userDayLimitServiceUrl;
+
+    @Bean("productRestClient")
     RestClient productRestClient(){
         return RestClient.builder()
                 .baseUrl(productsServiceUrl)
+                .build();
+    }
+
+    @Bean("usersDayLimitRestClient")
+    RestClient usersDayLimitRestClient(){
+        return RestClient.builder()
+                .baseUrl(userDayLimitServiceUrl)
                 .build();
     }
 }

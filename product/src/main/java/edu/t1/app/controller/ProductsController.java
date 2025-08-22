@@ -3,6 +3,7 @@ package edu.t1.app.controller;
 import edu.t1.app.model.ProductOperation;
 import edu.t1.app.model.dto.ProductDto;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,21 +12,21 @@ import java.util.List;
 @RequestMapping("products")
 public interface ProductsController {
     @GetMapping
-    List<ProductDto> getProducts(@RequestParam("userId") Long userId);
+    ResponseEntity<List<ProductDto>> getProducts(@RequestParam("userId") Long userId);
 
     @GetMapping("/{id}")
-    ProductDto getProduct(@PathVariable("id") Long id);
+    ResponseEntity<ProductDto> getProduct(@PathVariable("id") Long id);
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    ProductDto create(@RequestBody ProductDto productDto);
+    ResponseEntity<ProductDto> create(@RequestBody ProductDto productDto);
 
     @PatchMapping
     @ResponseStatus(HttpStatus.OK)
-    ProductDto updateProduct(@RequestBody ProductOperation productOperation);
+    ResponseEntity<ProductDto> updateProduct(@RequestBody ProductOperation productOperation);
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void delete(@PathVariable("id") Long id);
+    ResponseEntity delete(@PathVariable("id") Long id);
 }
 

@@ -17,6 +17,4 @@ public class ProductsControllerImpl implements ProductController {
     public ResponseEntity<List<ProductDto>> getProducts(Long userId) {
         return ResponseEntity.ok(productService.getUserProducts(userId));
     }
-
-
 }

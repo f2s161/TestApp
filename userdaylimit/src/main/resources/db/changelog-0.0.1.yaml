@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0.0.1
+      author: Dmitriy
+      changes:
+        createTable:
+            tableName: user_day_limit
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: current_day_limit
+                  type: numeric
+                  constraints:
+                    nullable: false
+              - column:
+                  name: default_day_limit
+                  type: numeric
+                  constraints:
+                    nullable: false
+        createIndex:
+          tableName: user_day_limit
+          indexName: user_day_limit_username_idx
+          unique: true
+          columns:
+            - name: username

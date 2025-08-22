@@ -5,7 +5,3 @@ databaseChangeLog:
       changes:
         - sql:
             sql: "INSERT INTO public.users (id, username) VALUES(nextval('users_id_seq'::regclass), concat('testUser', now()));"
-        - sql:
-            sql: "INSERT INTO public.users (id, username) VALUES(nextval('users_id_seq'::regclass), concat('testUser', now()));"
-        - sql:
-            sql: "INSERT INTO public.users (id, username) VALUES(nextval('users_id_seq'::regclass), concat('testUser', now()));"

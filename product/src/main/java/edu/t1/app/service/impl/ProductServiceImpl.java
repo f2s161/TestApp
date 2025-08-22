@@ -9,10 +9,11 @@ import edu.t1.app.model.dto.ProductDto;
 import edu.t1.app.repository.ProductRepository;
 import edu.t1.app.service.ProductService;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestClient;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +26,7 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
     private final ProductEntityToDtoMapper productEntityToDtoMapper;
     private final ProductDtoToEntityMapper productDtoToEntityMapper;
+    private final RestClient usersDayLimitRestClient;
 
     @Override
     public List<ProductDto> findByUserId(Long userId) {

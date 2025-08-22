@@ -12,4 +12,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleNotEnoughFundsException(NotEnoughFundsException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
+    @ExceptionHandler(UserDayLimitUpdateException.class)
+    protected ResponseEntity<Object> handleUserDayLimitUpdateException(UserDayLimitUpdateException ex) {
+        return ResponseEntity.badRequest().body(ex.getMessage());
+    }
 }

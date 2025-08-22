@@ -1,18 +1,18 @@
 package edu.t1.app.service;
 
 import edu.t1.app.model.dto.UserDto;
-import edu.t1.app.model.UserEntity;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
 
-    List<UserEntity> findAll();
+    List<UserDto> findAll();
 
-    Optional<UserEntity> findById(Long userId);
+    UserDto findById(Long userId);
+    UserDto findByUsername(String username);
 
     void deleteById(Long userId);
 
-    UserEntity save(UserDto userDto);
+    UserDto save(UserDto userDto);
 }

@@ -9,6 +9,7 @@
     <modules>
         <module>payment</module>
         <module>product</module>
+        <module>userdaylimit</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

@@ -14,4 +14,6 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+app:
+  user-day-limit-service-url: http://localhost:8082
 

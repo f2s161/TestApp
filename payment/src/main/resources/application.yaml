@@ -2,4 +2,5 @@ server:
   port: 8081
 app:
   products-url: http://localhost:8080
+  user-day-limit-service-url: http://localhost:8082
 
